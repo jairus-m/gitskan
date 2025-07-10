@@ -1,6 +1,6 @@
 [project]
 name = "gitskan"
-version = "0.0.6"
+version = "0.0.7"
 description = "A CLI tool to scan directories for Git repositories and display their status information."
 requires-python = ">=3.8"
 authors = [
@@ -37,7 +37,7 @@ dev = [
 ]
 
 [project.scripts]
-gsk = "cli:main"
+gitskan = "cli:main"
 
 [build-system]
 requires = ["setuptools>=61.0"]
