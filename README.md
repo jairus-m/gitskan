@@ -1,12 +1,14 @@
 # gitskan
 
-A CLI tool for scanning directories and displaying Git repository status information. `gitskan` is a fork of [gits-statuses](https://github.com/nicolgit/gits-statuses) which provides a comprehensive overview of all your Git repositories in a clean, tabular format.
+A CLI tool for scanning directories and displaying Git repository status information. `gitskan` is a fork of [gits-statuses](https://github.com/nicolgit/gits-statuses) which provides scripts to get a comprehensive overview of all your Git repositories in a clean, tabular format.
 
 Notes:
-- This fork was catalyzed by this [GitHub issue](https://github.com/nicolgit/gits-statuses/issues/1)
-- This is meant to implement the exact functionality but in a single CLI executable
-- Renamed to `gitskan` as to not conflict with `gits-statuses` and to further simplify CLI command
-  - Executable name in CLI: `gsk`
+- `gitskan` was catalyzed by this [GitHub Issue](https://github.com/nicolgit/gits-statuses/issues/1)
+- Implements a single CLI utility that can:
+  - Be distributed to and downloaded from PyPi via (`pip` or `uv`)
+  - Used globally as a bona fide CLI utility
+  - Simplify both installation and usage for the end user
+  - Run on any terminal
 
 ## Features
 
@@ -41,17 +43,12 @@ This scans your directories and displays:
 - [uv](https://docs.astral.sh/uv/)
 
 ### Install with uv (Recommended)
-Note: This is only being temporarily published as an OS CLI tool to PyPi to showcase how it can be distributed and used. The hope is to merge this fork!
-
 ```bash
-# Install uv if you haven't already
-pip install uv     # or brew install uv on mac
-
 # Install gitskan
 uv tool install gitskan
 
 # Verify installation
-gsk --version
+gitskan --version
 ```
 
 ## Usage
@@ -60,16 +57,16 @@ gsk --version
 
 ```bash
 # Basic usage - scan current directory
-gsk
+gitskan
 
 # Detailed view with remote URLs and total commits
-gsk --detailed
+gitskan --detailed
 
 # Scan a specific directory
-gsk --path /path/to/projects
+gitskan --path /path/to/projects
 
 # Show help
-gsk --help
+gitskan --help
 ```
 
 ### Examples
