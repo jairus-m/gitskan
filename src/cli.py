@@ -23,7 +23,7 @@ def create_parser() -> argparse.ArgumentParser:
         argparse.ArgumentParser: The argument parser.
     """
     parser = argparse.ArgumentParser(
-        prog="gsk",
+        prog="gitskan",
         description="Git repository status scanner - Displays status information for Git repositories",
     )
 

@@ -17,7 +17,7 @@ class TestCliIntegration:
     @patch("cli.validate_path")
     @patch("cli.GitScanner")
     @patch("cli.TableFormatter")
-    @patch("sys.argv", ["gsk"])
+    @patch("sys.argv", ["gitskan"])
     def test_cli_full_workflow_no_repositories(
         self, mock_formatter, mock_scanner_class, mock_validate_path, mock_check_git
     ):
@@ -46,7 +46,7 @@ class TestCliIntegration:
     @patch("cli.validate_path")
     @patch("cli.GitScanner")
     @patch("cli.TableFormatter")
-    @patch("sys.argv", ["gsk", "--detailed"])
+    @patch("sys.argv", ["gitskan", "--detailed"])
     def test_cli_full_workflow_with_repositories(
         self, mock_formatter, mock_scanner_class, mock_validate_path, mock_check_git
     ):
@@ -87,7 +87,7 @@ class TestCliIntegration:
         mock_scanner.get_summary_stats.assert_called_once()
 
     @patch("cli.check_git_availability")
-    @patch("sys.argv", ["gsk"])
+    @patch("sys.argv", ["gitskan"])
     def test_cli_git_not_available(self, mock_check_git):
         """Test CLI when git is not available."""
         mock_check_git.return_value = False

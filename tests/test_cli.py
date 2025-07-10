@@ -22,7 +22,7 @@ class TestCreateParser:
         parser = create_parser()
 
         # Test version argument is present
-        with patch("sys.argv", ["gsk", "--version"]):
+        with patch("sys.argv", ["gitskan", "--version"]):
             with pytest.raises(SystemExit) as exc_info:
                 parser.parse_args(["--version"])
             assert exc_info.value.code == 0
@@ -65,7 +65,7 @@ class TestMain:
         mock_scanner.scan.return_value = []
         mock_scanner_class.return_value = mock_scanner
 
-        with patch("sys.argv", ["gsk"]):
+        with patch("sys.argv", ["gitskan"]):
             with patch("builtins.print") as mock_print:
                 result = main()
 
@@ -108,7 +108,7 @@ class TestMain:
         mock_formatter.format_repositories.return_value = "Repository table"
         mock_formatter.format_summary.return_value = "Summary table"
 
-        with patch("sys.argv", ["gsk"]):
+        with patch("sys.argv", ["gitskan"]):
             with patch("builtins.print"):
                 result = main()
 
@@ -130,7 +130,7 @@ class TestMain:
         """Test main function when git is not available."""
         mock_check_git.return_value = False
 
-        with patch("sys.argv", ["gsk"]):
+        with patch("sys.argv", ["gitskan"]):
             with patch("cli.print_error") as mock_print_error:
                 result = main()
 
@@ -154,7 +154,7 @@ class TestMain:
         mock_scanner.scan.side_effect = KeyboardInterrupt()
         mock_scanner_class.return_value = mock_scanner
 
-        with patch("sys.argv", ["gsk"]):
+        with patch("sys.argv", ["gitskan"]):
             with patch("builtins.print") as mock_print:
                 result = main()
 
@@ -175,7 +175,7 @@ class TestMain:
         mock_scanner.scan.side_effect = Exception("Test error")
         mock_scanner_class.return_value = mock_scanner
 
-        with patch("sys.argv", ["gsk"]):
+        with patch("sys.argv", ["gitskan"]):
             with patch("cli.print_error") as mock_print_error:
                 result = main()
 
@@ -209,7 +209,7 @@ class TestMain:
         mock_formatter.format_repositories.return_value = "Detailed table"
         mock_formatter.format_summary.return_value = "Summary"
 
-        with patch("sys.argv", ["gsk", "--detailed"]):
+        with patch("sys.argv", ["gitskan", "--detailed"]):
             result = main()
 
         assert result == 0
@@ -233,7 +233,7 @@ class TestMain:
         mock_scanner_class.return_value = mock_scanner
 
         custom_path = "/custom/path"
-        with patch("sys.argv", ["gsk", "--path", custom_path]):
+        with patch("sys.argv", ["gitskan", "--path", custom_path]):
             result = main()
 
         assert result == 0
@@ -250,7 +250,7 @@ class TestMainIntegration:
             mock_main.return_value = 0
 
             # Simulate calling from command line
-            with patch("sys.argv", ["gsk"]):
+            with patch("sys.argv", ["gitskan"]):
                 from cli import main
 
                 result = main()
