@@ -4,11 +4,11 @@ A CLI tool for scanning directories and displaying Git repository status informa
 
 Notes:
 - `gitskan` was catalyzed by this [GitHub Issue](https://github.com/nicolgit/gits-statuses/issues/1)
-- Implements a single CLI utility that can:
-  - Be distributed to and downloaded from PyPi via (`pip` or `uv`)
+- Implements a single CLI utility that is:
+  - Distributed and downloaded via [PyPi](https://pypi.org/project/gitskan/)
   - Used globally as a bona fide CLI utility
-  - Simplify both installation and usage for the end user
-  - Run on any terminal
+  - Easy to install and use for the end user
+  - Compatible with any terminal
 
 ## Features
 
